@@ -7,7 +7,7 @@
       android:id="@+id/dark_mode"
       android:checkable="true"
       android:title="@string/dark_mode"/>
-  <item
+  <item android:visible="false"
       android:id="@+id/support_me"
       android:title="@string/support_me"/>
 </menu>

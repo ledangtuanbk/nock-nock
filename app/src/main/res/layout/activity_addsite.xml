@@ -152,6 +152,7 @@
             />
 
         <EditText
+            android:text="@string/response_timeout_default"
             android:id="@+id/responseTimeoutInput"
             android:hint="@string/response_timeout_default"
             android:inputType="number"
