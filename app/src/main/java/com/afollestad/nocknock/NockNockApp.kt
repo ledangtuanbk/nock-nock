@@ -23,12 +23,10 @@ import com.afollestad.nocknock.engine.engineModule
 import com.afollestad.nocknock.koin.mainModule
 import com.afollestad.nocknock.koin.prefModule
 import com.afollestad.nocknock.koin.viewModelModule
-import com.afollestad.nocknock.logging.FabricTree
 import com.afollestad.nocknock.notifications.NockNotificationManager
 import com.afollestad.nocknock.notifications.notificationsModule
 import com.afollestad.nocknock.utilities.commonModule
-import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
+import com.google.android.gms.ads.MobileAds
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.android.startKoin
 import timber.log.Timber
@@ -39,17 +37,11 @@ import timber.log.Timber.d as log
 class NockNockApp : Application() {
 
   private var resumedActivities: Int = 0
-
   override fun onCreate() {
     super.onCreate()
 
     if (DEBUG) {
       Timber.plant(DebugTree())
-    }
-
-    if (BuildConfig.FABRIC_API_KEY.isNotEmpty()) {
-      Timber.plant(FabricTree())
-      Fabric.with(this, Crashlytics())
     }
 
     val modules = listOf(
@@ -77,5 +69,8 @@ class NockNockApp : Application() {
       check(resumedActivities >= 0) { "resumedActivities can't go below 0." }
       nockNotificationManager.setIsAppOpen(resumedActivities > 0)
     }
+    MobileAds.initialize(this, getString(R.string.admob_app_id));
+
   }
+
 }

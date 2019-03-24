@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "92643245406",
+    "firebase_url": "https://website-55d7b.firebaseio.com",
+    "project_id": "website-55d7b",
+    "storage_bucket": "website-55d7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92643245406:android:e28f2ed0e763bb0b",
+        "android_client_info": {
+          "package_name": "com.tt.website"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92643245406-bbrcb1rbiv0nhm6unlfd8t05l1nq2jtc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA3uKBBOA7YBYcRK8P_iXYoX83csPuUkg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

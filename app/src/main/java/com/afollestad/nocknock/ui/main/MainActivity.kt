@@ -17,6 +17,7 @@ package com.afollestad.nocknock.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
@@ -38,6 +39,10 @@ import com.afollestad.nocknock.utilities.ui.toast
 import com.afollestad.nocknock.viewUrl
 import com.afollestad.nocknock.viewUrlWithApp
 import com.afollestad.nocknock.viewcomponents.livedata.toViewVisibility
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.InterstitialAd
 import kotlinx.android.synthetic.main.activity_main.fab
 import kotlinx.android.synthetic.main.activity_main.list
 import kotlinx.android.synthetic.main.activity_main.loadingProgress
@@ -64,6 +69,9 @@ class MainActivity : DarkModeSwitchActivity() {
     }
   }
 
+  lateinit var mAdView : AdView
+  private lateinit var mInterstitialAd: InterstitialAd
+    private var TAG:String = "MainActivity"
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
@@ -87,6 +95,38 @@ class MainActivity : DarkModeSwitchActivity() {
     loadingProgress.observe(this, viewModel.onIsLoading())
 
     processIntent(intent)
+
+
+    mAdView = findViewById(R.id.adView)
+    val adRequest = AdRequest.Builder().build()
+    mAdView.loadAd(adRequest)
+
+
+    mInterstitialAd = InterstitialAd(this)
+    mInterstitialAd.adUnitId = getString(R.string.admob_interstitial_id)
+    mInterstitialAd.loadAd(AdRequest.Builder().build())
+    mInterstitialAd.adListener = object: AdListener() {
+      override fun onAdLoaded() {
+        // Code to be executed when an ad finishes loading.
+      }
+
+      override fun onAdFailedToLoad(errorCode: Int) {
+        // Code to be executed when an ad request fails.
+      }
+
+      override fun onAdOpened() {
+        // Code to be executed when the ad is displayed.
+      }
+
+      override fun onAdLeftApplication() {
+        // Code to be executed when the user has left the app.
+      }
+
+      override fun onAdClosed() {
+        // Code to be executed when the interstitial ad is closed.
+        finish()
+      }
+    }
   }
 
   private fun setupUi() {
@@ -143,6 +183,16 @@ class MainActivity : DarkModeSwitchActivity() {
     } else {
       viewSite(model)
     }
+  }
+
+  override fun onBackPressed() {
+    Log.d(TAG, "onDestroy");
+    if (mInterstitialAd.isLoaded) {
+      mInterstitialAd.show()
+    }else {
+    super.onBackPressed()
+    }
+
   }
 
   private fun supportMe() {
