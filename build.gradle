@@ -2,35 +2,36 @@ apply from: './dependencies.gradle'
 apply from: './versionsPlugin.gradle'
 
 buildscript {
-  apply from: './dependencies.gradle'
+    apply from: './dependencies.gradle'
 
-  repositories {
-    google()
-    jcenter()
-    maven { url 'https://maven.fabric.io/public' }
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:' + versions.gradlePlugin
-    classpath 'com.diffplug.spotless:spotless-plugin-gradle:' + versions.spotlessPlugin
-    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:' + versions.kotlin
-    classpath 'com.github.ben-manes:gradle-versions-plugin:' + versions.versionPlugin
-    // Add dependency
-    classpath 'io.fabric.tools:gradle:1.26.1'
-    classpath 'com.google.gms:google-services:4.2.0'
-  }
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:' + versions.gradlePlugin
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:' + versions.spotlessPlugin
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:' + versions.kotlin
+        classpath 'com.github.ben-manes:gradle-versions-plugin:' + versions.versionPlugin
+        // Add dependency
+
+        classpath 'com.google.gms:google-services:4.2.0'
+        classpath 'io.fabric.tools:gradle:1.26.1'
+    }
 }
 
 allprojects {
-  repositories {
-    google()
-    jcenter()
-    maven { url "https://jitpack.io" }
-    maven {
-      url 'https://maven.google.com/'
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven {
+            url 'https://maven.google.com/'
+        }
     }
-  }
 
-  tasks.withType(Javadoc).all {
-    enabled = false
-  }
+    tasks.withType(Javadoc).all {
+        enabled = false
+    }
 }

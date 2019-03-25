@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">Website Monitoring</string>
+  <string name="app_name_x">Website Monitoring %1$s</string>
+</resources>

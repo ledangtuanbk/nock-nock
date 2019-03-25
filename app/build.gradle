@@ -11,7 +11,7 @@ android {
   buildToolsVersion versions.buildTools
 
   defaultConfig {
-    applicationId "com.tt.website"
+    applicationId "com.tt.website.monitor"
     minSdkVersion versions.minSdk
     targetSdkVersion versions.compileSdk
     versionCode versions.publishVersionCode

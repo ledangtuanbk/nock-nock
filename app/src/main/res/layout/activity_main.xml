@@ -1,82 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.MainActivity"
-    >
+    android:layout_height="match_parent">
 
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical"
-      >
-
-    <include layout="@layout/include_app_bar"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tags_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:paddingBottom="@dimen/content_inset_half"
-        android:paddingEnd="@dimen/content_inset"
-        android:paddingStart="@dimen/content_inset"
-        android:paddingTop="@dimen/content_inset_half"
-        android:scrollbars="none"
-        android:visibility="gone"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        />
+        android:layout_above="@+id/adView"
+        tools:context=".ui.main.MainActivity">
 
-  </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-  <include layout="@layout/include_empty_view"/>
+            <include layout="@layout/include_app_bar" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tags_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/content_inset"
+                android:paddingTop="@dimen/content_inset_half"
+                android:paddingEnd="@dimen/content_inset"
+                android:paddingBottom="@dimen/content_inset_half"
+                android:scrollbars="none"
+                android:visibility="gone" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
 
-  <com.afollestad.nocknock.viewcomponents.LoadingIndicatorFrame
-      android:id="@+id/loadingProgress"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:visibility="gone"
-      />
-  <LinearLayout
-      android:orientation="vertical"
-      android:layout_gravity="bottom"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+        </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/fab"
-        android:layout_margin="@dimen/content_inset"
-        android:layout_gravity="end"
-        style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="64dp"
-        android:text="@string/add_site"
-        app:cornerRadius="32dp"
-        app:icon="@drawable/ic_add"
-        app:iconTint="#fff" />
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        <include layout="@layout/include_empty_view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fab"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="@dimen/content_inset_more"
+            android:layout_marginBottom="@dimen/content_inset"
+            android:minHeight="64dp"
+            android:paddingStart="@dimen/content_inset"
+            android:paddingTop="@dimen/content_inset_half"
+            android:paddingEnd="@dimen/content_inset"
+            android:paddingBottom="@dimen/content_inset_half"
+            android:text="@string/add_site"
+            app:cornerRadius="32dp"
+            app:icon="@drawable/ic_add"
+            app:iconTint="#fff" />
+
+        <com.afollestad.nocknock.viewcomponents.LoadingIndicatorFrame
+            android:id="@+id/loadingProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
-        android:layout_gravity="center|bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_banner_id">
-    </com.google.android.gms.ads.AdView>
-  </LinearLayout>
+        ads:adUnitId="@string/admob_banner_id"></com.google.android.gms.ads.AdView>
+</RelativeLayout>
 
-</FrameLayout>

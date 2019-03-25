@@ -28,6 +28,7 @@ import com.afollestad.nocknock.viewcomponents.R
 import com.afollestad.nocknock.viewcomponents.livedata.attachLiveData
 import com.afollestad.nocknock.viewcomponents.livedata.lifecycleOwner
 import com.afollestad.vvalidator.form.Form
+import kotlinx.android.synthetic.main.retry_policy_layout.view.*
 import kotlinx.android.synthetic.main.validation_interval_layout.view.input
 import kotlinx.android.synthetic.main.validation_interval_layout.view.spinner
 
@@ -96,5 +97,9 @@ class ValidationIntervalLayout(
           }
         }
     )
+
+    form.input(input, optional = false) {
+      isNumber().greaterThan(0)
+    }
   }
 }
