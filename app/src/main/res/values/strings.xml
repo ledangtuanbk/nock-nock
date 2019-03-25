@@ -11,7 +11,7 @@
   ]]></string>
   <string name="dark_mode">Dark Mode</string>
 
-  <string name="dismiss">Dismiss</string>
+  <string name="close">Close</string>
   <string name="add_site">Add Site</string>
   <string name="site_name">Site Name</string>
   <string name="site_name_hint">Site display name</string>

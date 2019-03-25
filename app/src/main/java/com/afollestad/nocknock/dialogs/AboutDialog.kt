@@ -38,7 +38,7 @@ class AboutDialog : DialogFragment() {
     val context = activity ?: throw IllegalStateException("Oh no!")
     return MaterialDialog(context)
         .title(text = getString(R.string.app_name_x, BuildConfig.VERSION_NAME))
-        .positiveButton(R.string.dismiss)
+        .positiveButton(R.string.close)
         .message(R.string.about_body, html = true, lineHeightMultiplier = 1.4f)
   }
 }
