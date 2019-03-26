@@ -71,12 +71,12 @@ class AddSiteViewModel(
 
   @OnLifecycleEvent(ON_START)
   fun setDefaults() {
-    timeout.value = 10000
+//    timeout.value = 10000
     validationMode.value = STATUS_CODE
-    checkIntervalValue.value = 0
+//    checkIntervalValue.value = 1
     checkIntervalUnit.value = MINUTE
-    retryPolicyMinutes.value = 0
-    retryPolicyMinutes.value = 0
+//    retryPolicyMinutes.value = 1
+//    retryPolicyTimes.value = 1
     tags.value = ""
     headers.value = emptyList()
   }
@@ -129,7 +129,7 @@ class AddSiteViewModel(
   // Utilities
   @VisibleForTesting(otherwise = PRIVATE)
   fun getCheckIntervalMs(): Long {
-    val value = checkIntervalValue.value ?: return 0
+    val value = checkIntervalValue.value ?: return 1
     val unit = checkIntervalUnit.value ?: return 0
     return value * unit
   }

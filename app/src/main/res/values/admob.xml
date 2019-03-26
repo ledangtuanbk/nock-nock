@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+    <!--<string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>-->
+    <!--<string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--<string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>-->
+
+    <string name="admob_app_id">ca-app-pub-1862041864087470~8012072722</string>
+    <string name="admob_banner_id">ca-app-pub-1862041864087470/4060508987</string>
+    <string name="admob_interstitial_id">ca-app-pub-1862041864087470/6287927516</string>
 </resources>

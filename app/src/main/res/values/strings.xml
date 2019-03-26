@@ -72,7 +72,7 @@
   <string name="validation_mode_javascript_desc">
     The status code check is done first. If it\'s successful, the response body is passed to the
     JavaScript function above. If the function returns true, the site passes validation. Throw an
-    exception to pass custom error messages to Nock Nock.
+    exception to pass custom error messages to Website Monitor.
   </string>
 
   <string name="support_me">Donate</string>

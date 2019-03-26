@@ -54,7 +54,7 @@ class RetryPolicyLayout(
     invalidateDescriptionText()
 
     form.input(times, optional = true) {
-      isNumber().greaterThan(0)
+      isNumber().greaterThan(0).lessThan(10)
     }
     form.input(minutes, optional = true) {
       isNumber().greaterThan(0)
